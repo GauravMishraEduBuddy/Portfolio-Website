@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Software Developer & Hacker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="text-green">&gt;</span> Portfolio<span class="cursor">_</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">~/home</a></li>
+                <li><a href="#about" class="nav-link">~/about</a></li>
+                <li><a href="#experience" class="nav-link">~/experience</a></li>
+                <li><a href="#projects" class="nav-link">~/projects</a></li>
+                <li><a href="#achievements" class="nav-link">~/achievements</a></li>
+                <li><a href="#contact" class="nav-link">~/contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn-red"></span>
+                    <span class="btn-yellow"></span>
+                    <span class="btn-green"></span>
+                </div>
+                <div class="terminal-title">developer@portfolio:~$</div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">$</span> whoami
+                </div>
+                <div class="terminal-line">
+                    <span class="text-green">Software Developer & Ethical Hacker</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">$</span> cat name.txt
+                </div>
+                <div class="terminal-line">
+                    <span id="typed-name" class="text-cyan"></span><span class="cursor">|</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">$</span> ls skills/
+                </div>
+                <div class="terminal-line">
+                    <span class="text-yellow">programming/</span> <span class="text-cyan">cybersecurity/</span> <span class="text-green">web-dev/</span> <span class="text-purple">algorithms/</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">$</span> ./start_portfolio.sh
+                </div>
+                <div class="terminal-line">
+                    <span class="text-green">Portfolio initialized... Welcome to my digital world!</span>
+                </div>
+                <div class="terminal-line current-line">
+                    <span class="prompt">$</span> <span class="cursor">_</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="glitch" data-text="[DEVELOPER_NAME]">[DEVELOPER_NAME]</h1>
+            <p class="hero-subtitle">Full Stack Developer | Cybersecurity Enthusiast | Problem Solver</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-terminal"></i> Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-green">$</span> cat about.md
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="code-block">
+                        <pre><code class="language-python">
+class Developer:
+    def __init__(self):
+        self.name = "[YOUR_NAME]"
+        self.role = "Software Developer"
+        self.location = "[YOUR_LOCATION]"
+        self.education = "[YOUR_EDUCATION]"
+        self.languages = ["Python", "JavaScript", "Java", "C++"]
+        self.frameworks = ["React", "Node.js", "Django", "Flask"]
+        self.databases = ["MongoDB", "PostgreSQL", "MySQL"]
+        self.tools = ["Git", "Docker", "Kubernetes", "AWS"]
+        
+    def say_hello(self):
+        return "Hello, World! Ready to hack some code?"
+    
+    def current_focus(self):
+        return ["Web Security", "AI/ML", "Cloud Computing"]
+
+me = Developer()
+print(me.say_hello())
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Go</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-globe"></i> Web Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Penetration Testing</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">OWASP</span>
+                            <span class="skill-tag">Ethical Hacking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-green">$</span> cat experience.log
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>[JOB_TITLE]</h3>
+                        <h4>[COMPANY_NAME]</h4>
+                        <span class="timeline-date">[START_DATE] - Present</span>
+                        <p>[Job description and key achievements]</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Technology 1</span>
+                            <span class="tech-tag">Technology 2</span>
+                            <span class="tech-tag">Technology 3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>[PREVIOUS_JOB_TITLE]</h3>
+                        <h4>[PREVIOUS_COMPANY]</h4>
+                        <span class="timeline-date">[START_DATE] - [END_DATE]</span>
+                        <p>[Job description and key achievements]</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Technology 1</span>
+                            <span class="tech-tag">Technology 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-item">
+                    <div class="timeline-marker education"></div>
+                    <div class="timeline-content">
+                        <h3>[DEGREE]</h3>
+                        <h4>[UNIVERSITY_NAME]</h4>
+                        <span class="timeline-date">[START_YEAR] - [END_YEAR]</span>
+                        <p>Relevant coursework: Data Structures, Algorithms, Software Engineering, Database Systems</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">GPA: [YOUR_GPA]</span>
+                            <span class="tech-tag">Dean's List</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-green">$</span> ls projects/
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>[PROJECT_NAME_1]</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">[Project description and key features]</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-code">
+                        <pre><code>// Key feature implementation
+function hackTheSystem() {
+    return "Project successfully deployed!";
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>[PROJECT_NAME_2]</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">[Project description and key features]</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-code">
+                        <pre><code># Security implementation
+def encrypt_data(data):
+    return cipher.encrypt(data.encode())</code></pre>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>[PROJECT_NAME_3]</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-description">[Project description and key features]</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-code">
+                        <pre><code>// API integration
+const response = await fetch('/api/data');
+const result = await response.json();</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-green">$</span> cat achievements.json
+            </h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>[ACHIEVEMENT_TITLE]</h3>
+                    <p>[Achievement description and impact]</p>
+                    <span class="achievement-date">[YEAR]</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>[CERTIFICATION_NAME]</h3>
+                    <p>[Certification details and relevance]</p>
+                    <span class="achievement-date">[YEAR]</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>[COMPETITION_NAME]</h3>
+                    <p>[Competition achievement and recognition]</p>
+                    <span class="achievement-date">[YEAR]</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Open Source Contributor</h3>
+                    <p>Active contributor to various open source projects with [X] merged PRs</p>
+                    <span class="achievement-date">Ongoing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-green">$</span> ./contact.sh
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="terminal-contact">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> ping developer@email.com
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-green">PING successful! Ready to receive messages...</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> ls social_networks/
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-cyan">linkedin/</span> <span class="text-purple">github/</span> <span class="text-yellow">twitter/</span> <span class="text-green">email/</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="mailto:[YOUR_EMAIL]" class="social-link email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="[LINKEDIN_URL]" class="social-link linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="[GITHUB_URL]" class="social-link github" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="[TWITTER_URL]" class="social-link twitter" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form" class="form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 [YOUR_NAME]. All rights reserved.</p>
+                    <p>Built with <span class="text-red">❤</span> and lots of <span class="text-cyan">coffee</span></p>
+                </div>
+                <div class="footer-command">
+                    <span class="prompt">$</span> echo "Thanks for visiting!"
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
