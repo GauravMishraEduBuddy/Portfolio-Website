@@ -20,7 +20,7 @@
     --shadow-color: rgba(0, 255, 65, 0.3);
     --glow-color: rgba(0, 255, 65, 0.6);
     
-    --font-mono: 'Fira Code', 'Share Tech Mono', monospace;
+    --font-mono: 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
     --font-size-small: 0.875rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.125rem;
@@ -68,6 +68,19 @@ h1, h2, h3, h4, h5, h6 {
 .text-yellow { color: var(--text-yellow); }
 .text-red { color: var(--text-red); }
 .text-purple { color: var(--text-purple); }
+
+/* Icon Styles */
+.icon {
+    display: inline-block;
+    font-style: normal;
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+
+.icon.large {
+    font-size: 2.5em;
+    margin: 0;
+}
 
 /* Navigation */
 .nav {
