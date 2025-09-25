@@ -294,38 +294,105 @@ class ScrollAnimations {
     }
 }
 
-// Contact Form Handler
+// Contact Form Handler with EmailJS
 class ContactForm {
     constructor() {
         this.form = document.getElementById('contact-form');
+        this.submitBtn = document.getElementById('submit-btn');
+        this.btnText = document.getElementById('btn-text');
+        this.formStatus = document.getElementById('form-status');
+        
+        // Use secure EmailJS configuration from email-config.js
+        this.emailJSConfig = window.EMAIL_CONFIG || {
+            publicKey: 'gEQahHnEQ_kSAltX7', // Your actual public key as fallback
+            serviceID: 'service_b01c26r',   // Your actual service ID as fallback
+            templateID: 'template_jeyqk88'  // Your actual template ID as fallback
+        };
+        
         if (this.form) {
+            this.initEmailJS();
             this.form.addEventListener('submit', (e) => this.handleSubmit(e));
         }
     }
     
-    handleSubmit(e) {
+    initEmailJS() {
+        // Initialize EmailJS with your public key
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init(this.emailJSConfig.publicKey);
+            console.log('📧 EmailJS initialized with service:', this.emailJSConfig.serviceID);
+        } else {
+            console.error('❌ EmailJS library not loaded');
+        }
+    }
+    
+    async handleSubmit(e) {
         e.preventDefault();
         
         // Get form data
         const formData = new FormData(this.form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+        const templateParams = {
+            from_name: formData.get('from_name'),
+            from_email: formData.get('from_email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+            to_name: 'Gaurav Mishra', // Your name
+            reply_to: formData.get('from_email')
+        };
         
-        // Simple validation
-        if (!name || !email || !message) {
-            this.showMessage('Please fill in all fields.', 'error');
+        // Validation
+        if (!this.validateForm(templateParams)) {
             return;
         }
         
-        if (!this.isValidEmail(email)) {
-            this.showMessage('Please enter a valid email address.', 'error');
-            return;
+        // Show loading state
+        this.setLoadingState(true);
+        
+        try {
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                this.emailJSConfig.serviceID,
+                this.emailJSConfig.templateID,
+                templateParams
+            );
+            
+            console.log('✅ Email sent successfully:', response);
+            this.showMessage('🎉 Message sent successfully! I\'ll get back to you soon.', 'success');
+            this.form.reset();
+            
+            // Track successful submission (optional)
+            this.trackFormSubmission('success');
+            
+        } catch (error) {
+            console.error('❌ Email send failed:', error);
+            this.showMessage('😞 Failed to send message. Please try again or contact me directly.', 'error');
+            
+            // Track failed submission (optional)
+            this.trackFormSubmission('error', error);
         }
         
-        // Simulate form submission
-        this.showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
-        this.form.reset();
+        // Reset loading state
+        this.setLoadingState(false);
+    }
+    
+    validateForm(data) {
+        const { from_name, from_email, subject, message } = data;
+        
+        if (!from_name || !from_email || !subject || !message) {
+            this.showMessage('❗ Please fill in all fields.', 'error');
+            return false;
+        }
+        
+        if (!this.isValidEmail(from_email)) {
+            this.showMessage('❗ Please enter a valid email address.', 'error');
+            return false;
+        }
+        
+        if (message.length < 10) {
+            this.showMessage('❗ Please write a more detailed message (at least 10 characters).', 'error');
+            return false;
+        }
+        
+        return true;
     }
     
     isValidEmail(email) {
@@ -333,34 +400,63 @@ class ContactForm {
         return emailRegex.test(email);
     }
     
+    setLoadingState(isLoading) {
+        if (isLoading) {
+            this.submitBtn.disabled = true;
+            this.btnText.textContent = 'Sending...';
+            this.submitBtn.style.opacity = '0.7';
+            this.submitBtn.style.cursor = 'not-allowed';
+        } else {
+            this.submitBtn.disabled = false;
+            this.btnText.textContent = 'Send Message';
+            this.submitBtn.style.opacity = '1';
+            this.submitBtn.style.cursor = 'pointer';
+        }
+    }
+    
     showMessage(text, type) {
-        // Remove existing message
-        const existingMessage = document.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
+        // Clear any existing message
+        this.formStatus.style.display = 'none';
+        
+        // Set message content and type
+        this.formStatus.textContent = text;
+        this.formStatus.className = `form-message ${type}`;
+        this.formStatus.style.display = 'block';
+        
+        // Auto-hide message after 8 seconds
+        setTimeout(() => {
+            this.formStatus.style.display = 'none';
+        }, 8000);
+        
+        // Scroll to message for better UX
+        this.formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    trackFormSubmission(status, error = null) {
+        // Optional: Track form submissions for analytics
+        const event = {
+            event: 'contact_form_submission',
+            status: status,
+            timestamp: new Date().toISOString()
+        };
+        
+        if (error) {
+            event.error = error.text || error.message || 'Unknown error';
         }
         
-        // Create new message
-        const message = document.createElement('div');
-        message.className = `form-message ${type}`;
-        message.textContent = text;
-        message.style.cssText = `
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
-            font-family: 'Fira Code', monospace;
-            ${type === 'success' 
-                ? 'background: rgba(0, 255, 65, 0.1); color: #00ff41; border: 1px solid #00ff41;'
-                : 'background: rgba(255, 0, 64, 0.1); color: #ff0040; border: 1px solid #ff0040;'
-            }
-        `;
+        console.log('📊 Form submission tracked:', event);
         
-        this.form.appendChild(message);
-        
-        // Remove message after 5 seconds
-        setTimeout(() => {
-            message.remove();
-        }, 5000);
+        // You can integrate with Google Analytics, etc. here
+        // Example: gtag('event', 'contact_form_submission', event);
+    }
+    
+    // Method to update EmailJS configuration (call this with your actual credentials)
+    updateConfig(publicKey, serviceID, templateID) {
+        this.emailJSConfig.publicKey = publicKey;
+        this.emailJSConfig.serviceID = serviceID;
+        this.emailJSConfig.templateID = templateID;
+        this.initEmailJS();
+        console.log('🔧 EmailJS configuration updated');
     }
 }
 

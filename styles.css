@@ -760,6 +760,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     color: var(--text-primary);
     margin-bottom: var(--spacing-xs);
+    font-weight: 500;
 }
 
 .form-group input,
@@ -772,6 +773,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
     font-family: var(--font-mono);
     transition: var(--transition);
+    font-size: var(--font-size-base);
 }
 
 .form-group input:focus,
@@ -779,6 +781,55 @@ h1, h2, h3, h4, h5, h6 {
     outline: none;
     border-color: var(--text-primary);
     box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Form Status Messages */
+.form-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1px solid;
+    animation: slideIn 0.3s ease-out;
+}
+
+.form-message.success {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+.form-message.error {
+    background: rgba(255, 0, 64, 0.1);
+    color: var(--text-red);
+    border-color: var(--text-red);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state for submit button */
+.btn:disabled {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
 }
 
 /* Footer */
