@@ -310,21 +310,22 @@ class SkillProgress {
 class ConsoleCommands {
     constructor() {
         this.commands = {
-            'help': 'Available commands: help, about, skills, projects, contact, clear, matrix, hack',
-            'about': 'I am a passionate software developer and ethical hacker.',
-            'skills': 'JavaScript, Python, React, Node.js, Cybersecurity, and more!',
-            'projects': 'Check out my portfolio section to see my latest work.',
-            'contact': 'Feel free to reach out via the contact form or social links.',
+            'help': 'Available commands: help, about, skills, projects, contact, clear, matrix, code',
+            'about': 'I am Gaurav Mishra - Full Stack Developer & Technical Enthusiast passionate about building innovative solutions!',
+            'skills': '.NET Blazor, React, Node.js, MongoDB, JavaScript, Python, and modern web technologies!',
+            'projects': 'Check out The Home Ease, EduBuddy Analytics, and my interactive portfolio!',
+            'contact': 'Reach me at gauravmishra.geek@gmail.com or +91 7080165976',
             'clear': 'Console cleared!',
-            'matrix': 'Welcome to the Matrix... Follow the white rabbit.',
-            'hack': 'Access denied! Just kidding... or am I? 😉'
+            'matrix': 'Welcome to the Matrix of Code... Reality is what you make it! 💊',
+            'code': 'while(alive) { eat(); code(); sleep(); repeat(); } // Life of a developer! �'
         };
         
         this.initializeConsole();
     }
     
     initializeConsole() {
-        console.log('%c🚀 Welcome to my portfolio!', 'color: #00ff41; font-size: 20px; font-weight: bold;');
+        console.log('%c🚀 Welcome to Gaurav\'s Digital World!', 'color: #00ff41; font-size: 20px; font-weight: bold;');
+        console.log('%cFull Stack Developer | Technical Enthusiast | Problem Solver', 'color: #00ffff; font-size: 14px;');
         console.log('%cType "help" to see available commands', 'color: #00ffff; font-size: 14px;');
         
         // Override console.log to handle commands
@@ -335,7 +336,7 @@ class ConsoleCommands {
         window.projects = () => console.log(this.commands.projects);
         window.contact = () => console.log(this.commands.contact);
         window.matrix = () => console.log(this.commands.matrix);
-        window.hack = () => console.log(this.commands.hack);
+        window.code = () => console.log(this.commands.code);
         window.clear = () => console.clear();
     }
 }
@@ -434,19 +435,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameElement = document.getElementById('typed-name');
     if (nameElement) {
         new TypeWriter(nameElement, [
-            '[YOUR_NAME_HERE]',
-            'Software Developer',
-            'Ethical Hacker',
+            'GAURAV MISHRA',
+            'Full Stack Developer',
+            'Technical Enthusiast', 
             'Problem Solver',
+            '.NET Blazor Expert',
+            'React Developer',
             'Code Architect'
         ], 150, 100, 2000);
     }
     
     // Add some interactive console messages
     setTimeout(() => {
-        console.log('%c💻 Developer Console Active', 'color: #00ff41; font-size: 16px;');
-        console.log('%c🔒 Security Level: Maximum', 'color: #ff0040; font-size: 14px;');
-        console.log('%c🌟 Ready to hack some code!', 'color: #ffff00; font-size: 14px;');
+        console.log('%c💻 Full Stack Development Console Active', 'color: #00ff41; font-size: 16px;');
+        console.log('%c🎯 Status: Ready to build amazing solutions!', 'color: #ffff00; font-size: 14px;');
+        console.log('%c🌟 Let\'s create something extraordinary together!', 'color: #00ffff; font-size: 14px;');
     }, 2000);
     
     // Konami Code Easter Egg
@@ -466,6 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (konamiCode.join(',') === konamiSequence.join(',')) {
             console.log('%c🎮 KONAMI CODE ACTIVATED!', 'color: #ff00ff; font-size: 20px; font-weight: bold;');
             console.log('%c🚀 Welcome to the secret developer zone!', 'color: #00ffff; font-size: 16px;');
+            console.log('%c🎯 Easter egg found! You have excellent debugging skills! 🕵️‍♂️', 'color: #ffff00; font-size: 14px;');
             
             // Add some fun effects
             document.body.style.animation = 'glitch-anim-1 0.3s infinite';
