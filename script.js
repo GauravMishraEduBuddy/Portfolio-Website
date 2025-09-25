@@ -302,11 +302,11 @@ class ContactForm {
         this.btnText = document.getElementById('btn-text');
         this.formStatus = document.getElementById('form-status');
         
-        // Use secure EmailJS configuration from email-config.js
-        this.emailJSConfig = window.EMAIL_CONFIG || {
-            publicKey: 'gEQahHnEQ_kSAltX7', // Your actual public key as fallback
-            serviceID: 'service_b01c26r',   // Your actual service ID as fallback
-            templateID: 'template_jeyqk88'  // Your actual template ID as fallback
+        // Direct EmailJS configuration - embedded for GitHub Pages deployment
+        this.emailJSConfig = {
+            publicKey: 'gEQahHnEQ_kSAltX7',
+            serviceID: 'service_b01c26r',
+            templateID: 'template_jeyqk88'
         };
         
         if (this.form) {
@@ -319,7 +319,7 @@ class ContactForm {
         // Initialize EmailJS with your public key
         if (typeof emailjs !== 'undefined') {
             emailjs.init(this.emailJSConfig.publicKey);
-            console.log('📧 EmailJS initialized with service:', this.emailJSConfig.serviceID);
+            console.log('📧 EmailJS initialized successfully with service:', this.emailJSConfig.serviceID);
         } else {
             console.error('❌ EmailJS library not loaded');
         }
