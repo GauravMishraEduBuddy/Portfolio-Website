@@ -426,6 +426,90 @@ h1, h2, h3, h4, h5, h6 {
     overflow-wrap: anywhere;
 }
 
+/* Learning Section */
+.learning-content {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.learning-category {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.learning-category:hover {
+    border-color: var(--text-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.learning-category h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+}
+
+.learning-topics {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.topic-item:hover {
+    border-color: var(--text-yellow);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+}
+
+.topic-icon {
+    font-size: 1.2em;
+    min-width: 20px;
+}
+
+.topic-name {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: var(--font-size-small);
+    font-weight: 500;
+}
+
+.topic-status {
+    font-size: 1.1em;
+    min-width: 20px;
+    text-align: center;
+}
+
+.learning-footer {
+    margin-top: var(--spacing-xl);
+}
+
+/* Learning Status Icons */
+.topic-status:contains("✅") { color: var(--text-primary); }
+.topic-status:contains("📖") { color: var(--text-yellow); }
+.topic-status:contains("⏳") { color: var(--text-cyan); }
+
 .skills-grid {
     display: grid;
     gap: var(--spacing-md);
@@ -1067,6 +1151,23 @@ h1, h2, h3, h4, h5, h6 {
     .achievements-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
+    }
+    
+    .learning-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .learning-category {
+        padding: var(--spacing-sm);
+    }
+    
+    .topic-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .topic-name {
+        font-size: 0.8rem;
     }
     
     .achievement-card {
