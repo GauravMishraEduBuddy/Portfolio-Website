@@ -604,6 +604,81 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--spacing-sm);
 }
 
+/* Company Visit Link */
+.company-visit-link {
+    margin: var(--spacing-md) 0;
+    text-align: center;
+}
+
+.visit-company-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--text-cyan), var(--text-primary));
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--font-size-small);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.visit-company-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.visit-company-btn:hover::before {
+    left: 100%;
+}
+
+.visit-company-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+    background: linear-gradient(135deg, var(--text-primary), var(--text-cyan));
+}
+
+.visit-icon {
+    font-size: 1.1em;
+    animation: pulse 2s infinite;
+}
+
+.visit-text {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.visit-arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.visit-company-btn:hover .visit-arrow {
+    transform: translateX(3px);
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
@@ -1401,6 +1476,22 @@ h1, h2, h3, h4, h5, h6 {
     .timeline-content p {
         font-size: var(--font-size-small);
         line-height: 1.4;
+    }
+    
+    .visit-company-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0.2rem;
+        text-align: center;
+    }
+    
+    .visit-text {
+        font-size: 0.8rem;
+    }
+    
+    .visit-arrow {
+        display: none;
     }
     
     .project-card {
